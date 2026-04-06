@@ -13,6 +13,9 @@ class IndustryLogger:
         self.logger = logging.getLogger(name)
         self.logger.setLevel(logging.INFO)
         
+        # Clear existing handlers to prevent duplicates
+        self.logger.handlers = []
+        
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
 

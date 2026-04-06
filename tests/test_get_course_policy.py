@@ -1,10 +1,14 @@
 import sys
 import os
 import json
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from agent.agent import get_course_policy
-from telemetry.logger import logger
+from src.tools.get_course_policy import get_course_policy
+from src.telemetry.logger import IndustryLogger
+
+# Initialize logger with the workspace logs folder
+log_dir = os.path.join(os.path.dirname(__file__), '..', 'logs')
+logger = IndustryLogger(log_dir=log_dir)
 
 # Test the function
 print("Testing get_course_policy function:")

@@ -23,10 +23,10 @@ json_path = os.path.join(os.path.dirname(__file__), '..', '..', 'quy_dinh_mon_ho
 
 *Analyze a specific failure event you encountered during the lab using the logging system.*
 
-- **Problem Description**: File tool không thể liên kết với file test
-- **Log Source**: logs\2026-04-06.log
-- **Diagnosis**: Lỗi do hàm get_course_policy được định nghĩa ở hai nơi (agent.py và tools/get_course_policy.py), khiến tool không thể truy cập đúng file. LLM có thể bị confuse bởi tool spec không nhất quán.
-- **Solution**: Refactor code bằng cách loại bỏ duplicate function khỏi agent.py và import từ tools module. Thêm logging để track tool calls và test results.
+- **Problem Description**: File quy_dinh_mon_hoc.json trong folder tools không thể liên kết với file test_get_course_policy.py trong folder tests
+- **Log Source**: logs/2026-04-06.log
+- **Diagnosis**: Lỗi do file get_course_policy.py tìm file quy_dinh_mon_hoc.json ở thư mục gốc chứ không phải trong thư mục tools
+- **Solution**: Thay đổi path trong file get_course_policy.py để sao cho nó tìm đúng địa chỉ file quy_dinh_mon_hoc.json. Thêm logging để track tool calls và test results.
 
 ---
 

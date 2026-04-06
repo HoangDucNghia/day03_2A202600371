@@ -22,8 +22,8 @@ def get_course_policy(policy_type: str) -> Dict[str, Any]:
     Error modes: Invalid input
     """
     try:
-        # Load the JSON file
-        json_path = os.path.join(os.path.dirname(__file__), '..', '..', 'quy_dinh_mon_hoc.json')
+        # Load the JSON file from the same tools folder
+        json_path = os.path.join(os.path.dirname(__file__), 'quy_dinh_mon_hoc.json')
         with open(json_path, 'r', encoding='utf-8') as f:
             policies = json.load(f)
 
